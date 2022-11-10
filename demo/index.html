@@ -3,15 +3,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
+<!-- fallback plugins in case `plugins.json` is unavailable -->
+<open-scd plugins="{"menu": [{"name": "Open File", "translations": {"de": "Datei öffnen"}, "icon": "folder_open", "active": true, "src": "/dist/oscd-open.js"}]}"></open-scd>
+
 <script type="module">
 import '@openscd/open-scd-core/open-scd.js';
 
 fetch('./plugins.json')
   .then((res) => res.json())
   .then((plugins) => {
-    const openScd = document.createElement('open-scd');
-
-    document.body.appendChild(openScd);
+    const openScd = document.querySelector('open-scd');
 
     openScd.setAttribute('plugins', JSON.stringify(plugins));
 
