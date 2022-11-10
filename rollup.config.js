@@ -22,7 +22,7 @@ const baseConfig = createBasicConfig({
 });
 
 export default merge(baseConfig, {
-  input: './oscd-open.ts',
+  input: './src/oscd-open.ts',
   plugins: [typescript()],
   output: { file: 'dist/oscd-open.js', sourcemap: true, dir: undefined },
 });

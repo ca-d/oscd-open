@@ -1,9 +1,14 @@
-import { html, LitElement } from 'lit';
+import { html, LitElement, TemplateResult } from 'lit';
 import { query } from 'lit/decorators.js';
 
 import { newOpenEvent } from '@openscd/open-scd-core';
+import { MenuPlugin } from './lib/menu-plugin.js';
+import { EditorPlugin } from './lib/editor-plugin.js';
 
-export default class OscdOpen extends LitElement {
+export default class OscdOpen
+  extends LitElement
+  implements MenuPlugin, EditorPlugin<TemplateResult>
+{
   @query('input')
   input!: HTMLInputElement;
 

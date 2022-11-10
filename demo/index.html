@@ -2,16 +2,24 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Roboto:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-<open-scd plugins='{"menu": [{"name": "Open File", "translations": {"de": "Datei öffnen"}, "icon": "folder_open", "active": true, "src": "/dist/oscd-open.js"}],"editor": [{"name": "Open File", "translations": {"de": "Datei öffnen"}, "icon": "folder_open", "active": true, "src": "/dist/oscd-open.js"}]}'></open-scd>
 
 <script type="module">
 import '@openscd/open-scd-core/open-scd.js';
 
-const editor = document.querySelector('open-scd');
-const params = (new URL(document.location)).searchParams;
-for (const [name, value] of params) {
-editor.setAttribute(name, value);
-}
+fetch('./plugins.json')
+  .then((res) => res.json())
+  .then((plugins) => {
+    const openScd = document.createElement('open-scd');
+
+    document.body.appendChild(openScd);
+
+    openScd.setAttribute('plugins', JSON.stringify(plugins));
+
+    const params = (new URL(document.location)).searchParams;
+    for (const [name, value] of params) {
+      openScd.setAttribute(name, value);
+    }
+  });
 </script>
 <style>
 * {

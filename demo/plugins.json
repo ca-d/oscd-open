@@ -1,0 +1,25 @@
+{
+    "menu": [
+        {
+            "name": "Open File",
+            "translations": {
+                "de": "Datei öffnen"
+            },
+            "icon": "folder_open",
+            "active": true,
+            "src": "/dist/oscd-open.js"
+        }
+    ],
+    "editor": [
+        {
+            "name": "Open File",
+            "translations": {
+                "de": "Datei öffnen",
+                "en": "Open file"
+            },
+            "icon": "folder_open",
+            "active": true,
+            "src": "/dist/oscd-open.js"
+        }
+    ]
+}
