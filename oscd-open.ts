@@ -7,7 +7,7 @@ export default class OscdOpen extends LitElement {
   @query('input')
   input!: HTMLInputElement;
 
-  async run() {
+  run() {
     this.input.click();
   }
 
